@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
                     "https://st2.depositphotos.com/1064024/10769/i/600/depositphotos_107694484-stock-photo-little-boy.jpg"),
               ),
               Text("Гусев Александр"),
-              Reward(),
-              Reward(),
-              Reward()
+              Reward(icon:Icons.star,),
+              Reward(icon:Icons.cabin),
+              Reward(icon:Icons.dangerous)
             ],
           ),
         ),
@@ -32,13 +32,14 @@ class MyApp extends StatelessWidget {
 }
 
 class Reward extends StatelessWidget {
-  const Reward({Key? key}) : super(key: key);
+  final IconData? icon;
+  const Reward({Key? key,this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: [Icon(Icons.star), Text("Спал весь день")],
+        children: [Icon(icon), Text("Спал весь день")],
       ),
     );
   }
