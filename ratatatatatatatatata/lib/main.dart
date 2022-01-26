@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,22 +13,66 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://st2.depositphotos.com/1064024/10769/i/600/depositphotos_107694484-stock-photo-little-boy.jpg"),
-              ),
-              Text("Гусев Александр"),
-              Reward(icon:Icons.star,),
-              Reward(icon:Icons.cabin),
-              Reward(icon:Icons.dangerous)
-            ],
+      home: HomePage(),
+    );
+  }
+}
+ 
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       body: Column(
+         children:[
+           ChatTempLate(name: "hfnfneq",),
+           Divider(),
+           ChatTempLate(name: "sgarhkb",)
+         ],
+       ),
+    );
+  }
+}
+
+class ChatTempLate extends StatefulWidget {
+  ChatTempLate({Key? key,this. name}) : super(key: key);
+String? name;
+  @override
+  _ChatTempLateState createState() => _ChatTempLateState();
+}
+
+class _ChatTempLateState extends State<ChatTempLate> {
+  @override
+  Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.all(30.0),
+      width: size.width,
+      child: Row(
+        children: [
+
+          CircleAvatar(
+            backgroundImage: NetworkImage("https://st2.depositphotos.com/1064024/10769/i/600/depositphotos_107694484-stock-photo-little-boy.jpg"),
+            radius: 30.0,
           ),
-        ),
-      ),
+          
+          Column(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: [
+              widget.name!,
+              Text(
+                "пока"
+                ),
+            ],
+          )
+        ],
+      ), 
     );
   }
 }
